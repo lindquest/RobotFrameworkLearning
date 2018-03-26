@@ -5,7 +5,7 @@ Resource        resource.robot
 ***Test Cases***
 Valid Search
     Open Browser to Home Page
-    Input Search
+    Input Search    ${VALID SEARCH}
     Submit Search
-    Search Result Should Be Open
+    Valid Search Result Should Be Open
     [Teardown]  Close Browser
