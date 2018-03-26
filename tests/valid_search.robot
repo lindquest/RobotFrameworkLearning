@@ -1,8 +1,8 @@
-***Settings***
+*** Settings ***
 Documentation   Tests a single valid search on Wikipedia.
 Resource        resource.robot
 
-***Test Cases***
+*** Test Cases ***
 Valid Search
     Open Browser to Home Page
     Input Search    ${VALID SEARCH}

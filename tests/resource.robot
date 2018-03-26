@@ -1,9 +1,9 @@
-***Settings***
+*** Settings ***
 Documentation   Resource file with keywords and variables.
 Library         SeleniumLibrary
 Library         ../libraries/MyLibrary.py
 
-***Variables***
+*** Variables ***
 ${BROWSER}      Firefox
 ${DELAY}        0
 ${VALID SEARCH}     Brazil
@@ -12,7 +12,7 @@ ${RESULT URL}   https://en.wikipedia.org/wiki/${VALID SEARCH}
 ${RESULTS URL}  https://en.wikipedia.org/w/index.php?search=
 ${HOME URL}     https://en.wikipedia.org/wiki/Main_Page
 
-***Keywords***
+*** Keywords ***
 Open Browser to Home Page
     Open Browser    ${HOME URL}     ${BROWSER}
     Set Selenium Speed      ${DELAY}
@@ -33,11 +33,14 @@ Valid Search Result Should Be Open
     Title Should Be     ${VALID SEARCH} - Wikipedia
 
 Invalid Search Result Should Be Open
-    [Arguments]     ${searchText}
-    Location Should Contain     ${RESULTS URL}${searchText}
+    [Arguments]     ${resultText}   ${searchText}
+    Location Should Contain     ${RESULTS URL}${resultText}
     Title Should Be     ${searchText} - Search results - Wikipedia
 
 Join Search Terms
-    ${joint} = Join Two Strings    ${VALID SEARCH}     ${INVALID SEARCH}
-    Log To Console "Hello!"
-    [Return]    ${joint}
+    ${j} =  Join Two Strings    ${VALID SEARCH}     ${INVALID SEARCH}
+    [Return]    ${j}
+
+Join Results Terms
+    ${j} =  Join Two Strings With Plus  ${VALID SEARCH}     ${INVALID SEARCH}
+    [Return]    ${j}
