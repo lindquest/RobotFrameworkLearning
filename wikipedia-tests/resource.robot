@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation   Resource file with keywords and variables.
+Documentation   Resource file with keywords and variables for Wikipedia tests.
 Library         SeleniumLibrary
 Library         ../libraries/MyLibrary.py
 
@@ -25,6 +25,10 @@ Input Search
     [Arguments]     ${searchText}
     Input Text      searchInput     ${searchText}
 
+Input Search with Joint Terms
+    ${join} =   Join Search Terms
+    Input Search    ${join}
+
 Submit Search
     Click Button    searchButton
 
@@ -36,6 +40,11 @@ Invalid Search Result Should Be Open
     [Arguments]     ${resultText}   ${searchText}
     Location Should Contain     ${RESULTS URL}${resultText}
     Title Should Be     ${searchText} - Search results - Wikipedia
+
+Invalid Search Result with Joint Terms Should Be Open
+    ${joinSearch} =     Join Search Terms
+    ${joinResult} =     Join Results Terms
+    Invalid Search Result Should Be Open    ${joinResult}   ${joinSearch}
 
 Join Search Terms
     ${j} =  Join Two Strings    ${VALID SEARCH}     ${INVALID SEARCH}

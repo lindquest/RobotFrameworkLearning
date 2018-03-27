@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation   Tests an invalid search on Wikipedia.
+Documentation   Tests a search with no direct article result on Wikipedia.
 Resource        resource.robot
 
 *** Test Cases ***
@@ -12,9 +12,7 @@ Invalid Search
 
 Joint Strings Invalid Search
     Open Browser to Home Page
-    ${search} =     Join Search Terms
-    Input Search    ${search}
+    Input Search with Joint Terms
     Submit Search
-    ${result} =     Join Results Terms
-    Invalid Search Result Should Be Open    ${result}   ${search}
+    Invalid Search Result with Joint Terms Should Be Open
     [Teardown]  Close Browser
