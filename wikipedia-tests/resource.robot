@@ -18,6 +18,10 @@ Open Browser to Home Page
     Set Selenium Speed      ${DELAY}
     Home Page Should Be Open
 
+Go To Home Page
+    Go To   ${HOME URL}
+    Home Page Should Be Open
+
 Home Page Should Be Open
     Title Should Be     Wikipedia, the free encyclopedia
 
