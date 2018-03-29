@@ -4,7 +4,7 @@ Resource        resource.robot
 
 *** Test Cases ***
 Valid Search
-    Open Browser to Home Page
+    Open Browser To Home Page
     Input Search    ${VALID SEARCH}
     Submit Search
     Valid Search Result Should Be Open

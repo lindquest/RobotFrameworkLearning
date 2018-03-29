@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Tests a search with no direct article result on Wikipedia.
 Resource        resource.robot
-Suite Setup     Run Keywords    Open Browser to Home Page
+Suite Setup     Run Keywords    Open Browser To Home Page
 ...             AND             Register Keyword To Run On Failure  NOTHING
 Suite Teardown  Close Browser
 Test Setup      Go To Home Page

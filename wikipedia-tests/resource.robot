@@ -13,7 +13,7 @@ ${RESULTS URL}  https://en.wikipedia.org/w/index.php?search=
 ${HOME URL}     https://en.wikipedia.org/wiki/Main_Page
 
 *** Keywords ***
-Open Browser to Home Page
+Open Browser To Home Page
     Open Browser    ${HOME URL}     ${BROWSER}
     Set Selenium Speed      ${DELAY}
     Home Page Should Be Open
